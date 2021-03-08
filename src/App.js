@@ -1,57 +1,94 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { AppBar, CssBaseline, Link, Toolbar } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
+// import { makeStyles } from "@material-ui/core/styles";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import "./App.css";
+import Body from "./components/Body";
+import Header from "./components/Header";
+// import Banner from "./component/Banner";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <CssBaseline />
+      <AppBar position="relative">
+        <Toolbar style={{ backgroundColor: "#010300" }}>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-_UrxKptxxWmB1zyMMaZ126TzJdAeUNXgsw&usqp=CAU"
+            alt=""
+            style={{
+              position: "absolute",
+              maxHeight: "8vh",
+              objectFit: "contain",
+              left: "5%",
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Search for products brand and more"
+            style={{
+              maxWidth: "40%",
+              height: "7vh",
+              flex: 1,
+              padding: "1rem",
+              marginLeft: "15rem",
+              outline: "none",
+            }}
+          />
+          <SearchIcon />
+          <nav
+            style={{
+              position: "absolute",
+              right: "10%",
+            }}
           >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+            <Link
+              variant="button"
+              href="#"
+              style={{
+                marginLeft: "2rem",
+                color: "white",
+                zIndex: "999",
+              }}
+              // className={classes.link}
+            >
+              Arpit
+            </Link>
+            <Link
+              variant="button"
+              href="#"
+              style={{
+                marginLeft: "2rem",
+                color: "white",
+              }}
+              // className={classes.link}
+            >
+              More
+            </Link>
+            <ShoppingCartIcon />
+            <Link
+              variant="button"
+              href="#"
+              style={{
+                marginLeft: "2rem",
+                color: "white",
+              }}
+              // className={classes.link}
+            >
+              Cart
+            </Link>
+          </nav>
+        </Toolbar>
+      </AppBar>
+      <main>
+        <Header />
+        <div className="app__body">
+          <Sidebar />
+          <Body />
+        </div>
+      </main>
+    </>
   );
 }
 
